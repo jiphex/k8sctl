@@ -5,17 +5,17 @@ ARG BUILD_DATE
 
 # Metadata
 LABEL org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.name="helm-kubectl" \
-      org.label-schema.url="https://hub.docker.com/r/dtzar/helm-kubectl/" \
-      org.label-schema.vcs-url="https://github.com/dtzar/helm-kubectl" \
-      org.label-schema.build-date=$BUILD_DATE
+    org.label-schema.name="helm-kubectl" \
+    org.label-schema.url="https://hub.docker.com/r/dtzar/helm-kubectl/" \
+    org.label-schema.vcs-url="https://github.com/dtzar/helm-kubectl" \
+    org.label-schema.build-date=$BUILD_DATE
 
 # Note: Latest version of kubectl may be found at:
 # https://github.com/kubernetes/kubernetes/releases
-ENV KUBE_LATEST_VERSION="v1.16.2"
+ENV KUBE_LATEST_VERSION="v1.18.17"
 # Note: Latest version of helm may be found at:
 # https://github.com/kubernetes/helm/releases
-ENV HELM_VERSION="v2.16.1"
+ENV HELM_VERSION="v2.17.0"
 
 RUN apk add --no-cache ca-certificates bash git openssh curl \
     && wget -q https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl -O /usr/local/bin/kubectl \
